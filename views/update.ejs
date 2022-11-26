@@ -1,0 +1,39 @@
+<%- include('header') %>
+
+<% data.forEach(function(datas){ %> 
+<form class="form text-center mt-5" action="/update/<%= datas.id %>" method="post" enctype="multipart/form-data" >
+    <h2 class="text-success text-center mt-6 mb-2">UPDATE YOUR IMAGE</h2>
+<div class=" d-flex ms-5" >
+<div class="image" style="height: 300px; width: 200px; " ;>
+    <img src="/uploads/<%= datas.image %>" alt="" height="290px" width="260px">
+</div>
+
+    <div class="mt-3 w-50 ">
+      <input type="text" class="form-control container mt-3 w-50" value="<%= datas.title %>" name="title">
+     
+      <input type="text" class="form-control container mt-3 w-50" value="<%= datas.author %>" name="author">
+      <input type="file" class="mt-3 form-control container w-50 uploadfile" name="gallery" >
+      <div class="butt d-flex text-center m-auto w-50">
+      <button  class="btn btn-success container mt-3 w-50">UPDATE</button>
+     
+      <a href="/delete/<%= datas.id %>"  class="btn btn-danger container mt-3 w-50 ms-1">DELETE</a>
+      <input type="hidden" value="<%= datas.image %>" name="oldgallery">
+     
+    </div>        
+</div>
+</div>
+
+     
+  </form>
+  <img class="preview mt-2 ms-5" src="/uploads/<%= datas.image %>" alt="" height="190px" width="260px">
+  <% }) %>
+
+  <script>
+    const uploadfile=document.body.querySelector(".uploadfile")
+  const preview=document.body.querySelector(".preview")
+  
+  uploadfile.addEventListener('change', function(e){
+    preview.src = URL.createObjectURL(e.target.files[0])
+  })
+   </script>
+<%- include('footer') %>

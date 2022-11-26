@@ -1,0 +1,11 @@
+<%- include('header') %>
+<form class="form text-center mt-5" action="/add" method="post" enctype="multipart/form-data" >
+    <h2 class="text-success text-center mt-6 mb-2">ADD YOUR IMAGE</h2>
+    <div class="mt-3 w-50 m-auto">
+      <input type="text" class="form-control container mt-3 w-50" placeholder="Enter you image title" name="title">
+      <input type="text" class="form-control container mt-3 w-50" placeholder="Enter Author name" name="author">
+      <input type="file" class="form-control container mt-3 w-50" placeholder="Enter you image title" name="gallery">
+      <button type="submit" class="btn btn-success form-control container mt-3 w-50 text-center">Submit</button>
+</div>
+  </form>
+<%- include('footer') %>

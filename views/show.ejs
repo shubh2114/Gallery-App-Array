@@ -1,0 +1,25 @@
+<%- include('header') %>
+<%- include('nav') %>
+<div class="d-flex">
+<% cards.forEach(function(card){ %>  
+<div class="d-flex flex-wrap ">
+    <div class="card mb-3 me-3" style="width: 14rem">
+          <div class="card-img-top d-flex align-items-end" style="height: 290px;
+          background-image: url('/uploads/<%= card.image %>'); background-position: center; background-size: cover; background-repeat: no-repeat; " >
+                 <div class="card-body w-100 d-flex justify-content-between align-items-center">
+        <div class="text-white">
+        <h5 class="card-title">
+          <a class="text-light" href="/update/<%= card.id %>"><%= card.title %> </a></h5>
+        <p class="card-text"><%= card.author %></p>
+        </div>
+        <a download="/uploads/<%= card.image %>" href="/uploads/<%= card.image %>" class="btn btn-light text-dark downloadbtn">⬇</a>
+                 </div>
+         </div>
+    </div>
+</div>
+<% })%>
+
+</div>
+    
+
+<%- include('footer') %>
